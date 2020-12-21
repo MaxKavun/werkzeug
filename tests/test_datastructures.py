@@ -301,11 +301,11 @@ class _ImmutableDictTests:
 
 
 class TestImmutableTypeConversionDict(_ImmutableDictTests):
-    storage_class = datastructures.ImmutableTypeConversionDict  # type: ignore
+    storage_class = datastructures.ImmutableTypeConversionDict
 
 
 class TestImmutableMultiDict(_ImmutableDictTests):
-    storage_class = datastructures.ImmutableMultiDict  # type: ignore
+    storage_class = datastructures.ImmutableMultiDict
 
     def test_multidict_is_hashable(self):
         cls = self.storage_class
@@ -326,11 +326,11 @@ class TestImmutableMultiDict(_ImmutableDictTests):
 
 
 class TestImmutableDict(_ImmutableDictTests):
-    storage_class = datastructures.ImmutableDict  # type: ignore
+    storage_class = datastructures.ImmutableDict
 
 
 class TestImmutableOrderedMultiDict(_ImmutableDictTests):
-    storage_class = datastructures.ImmutableOrderedMultiDict  # type: ignore
+    storage_class = datastructures.ImmutableOrderedMultiDict
 
     def test_ordered_multidict_is_hashable(self):
         a = self.storage_class([("a", 1), ("b", 1), ("a", 2)])
@@ -339,7 +339,7 @@ class TestImmutableOrderedMultiDict(_ImmutableDictTests):
 
 
 class TestMultiDict(_MutableMultiDictTests):
-    storage_class = datastructures.MultiDict  # type: ignore
+    storage_class = datastructures.MultiDict
 
     def test_multidict_pop(self):
         def make_d():
@@ -409,7 +409,7 @@ class TestMultiDict(_MutableMultiDictTests):
 
 
 class TestOrderedMultiDict(_MutableMultiDictTests):
-    storage_class = datastructures.OrderedMultiDict  # type: ignore
+    storage_class = datastructures.OrderedMultiDict
 
     def test_ordered_interface(self):
         cls = self.storage_class

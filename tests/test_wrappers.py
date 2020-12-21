@@ -868,12 +868,10 @@ def test_invalid_range_request():
 
 
 def test_etag_response_mixin_freezing():
-    class WithFreeze(wrappers.ETagResponseMixin, wrappers.BaseResponse):  # type: ignore
+    class WithFreeze(wrappers.ETagResponseMixin, wrappers.BaseResponse):
         pass
 
-    class WithoutFreeze(  # type: ignore
-        wrappers.BaseResponse, wrappers.ETagResponseMixin
-    ):
+    class WithoutFreeze(wrappers.BaseResponse, wrappers.ETagResponseMixin):
         pass
 
     response = WithFreeze("Hello World")
@@ -1379,7 +1377,7 @@ def test_modified_url_encoding():
     class ModifiedRequest(wrappers.Request):
         url_charset = "euc-kr"
 
-    req = ModifiedRequest.from_values("/?foo=정상처리".encode("euc-kr"))
+    req = ModifiedRequest.from_values(query_string={"foo": "정상처리"}, charset="euc-kr")
     assert req.args["foo"] == "정상처리"
 
 
@@ -1505,7 +1503,7 @@ class TestJSONMixin:
     class Request(JSONMixin, wrappers.Request):
         pass
 
-    class Response(JSONMixin, wrappers.Response):  # type: ignore
+    class Response(JSONMixin, wrappers.Response):
         pass
 
     def test_request(self):
